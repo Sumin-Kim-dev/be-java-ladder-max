@@ -17,14 +17,16 @@ public class Ladder {
     public Ladder(int n, int maxHeight) {
         this.n = n;
         this.maxHeight = maxHeight;
-        legs = new ArrayList<>();
+        legs = generateLegs();
     }
 
-    public void generateLegs() {
+    public List<List<Boolean>> generateLegs() {
+        List<List<Boolean>> legs = new ArrayList<>();
         Random random = new Random();
         for (int i = 0; i < maxHeight; i++) {
             legs.add(i, generateRow(random, n - 1));
         }
+        return legs;
     }
 
     private List<Boolean> generateRow(Random random, int length) {
