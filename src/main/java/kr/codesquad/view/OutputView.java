@@ -1,8 +1,11 @@
 package kr.codesquad.view;
 
 import kr.codesquad.model.Ladder;
+import kr.codesquad.model.Name;
+import kr.codesquad.model.Names;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class OutputView {
 
@@ -14,14 +17,18 @@ public class OutputView {
         System.out.println("최대 사다리 높이는 몇 개인가요?");
     }
 
+    public static void printErrorMessage(Exception e) {
+        System.out.println(e.getMessage());
+    }
+
     public static void printLadder(Ladder ladder) {
         System.out.println(ladder);
     }
 
-    public static void printPeople(List<String> people) {
-        StringBuilder names = new StringBuilder();
-        people.stream().map(name -> String.format("%-6s", name))
-                .forEach(names::append);
-        System.out.println(names);
+    public static void printPeople(Names names) {
+        List<String> centeredName = names.getNames().stream()
+                .map(Name::centerAlignedName)
+                .collect(Collectors.toList());
+        System.out.println(String.join(" ", centeredName));
     }
 }

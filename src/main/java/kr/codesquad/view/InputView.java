@@ -1,7 +1,9 @@
 package kr.codesquad.view;
 
+import kr.codesquad.model.Name;
+import kr.codesquad.model.Names;
+
 import java.util.Arrays;
-import java.util.List;
 import java.util.Scanner;
 import java.util.stream.Collectors;
 
@@ -12,11 +14,17 @@ public class InputView {
         scanner = new Scanner(System.in);
     }
 
-    public List<String> getPeople() {
+    public Names getPeople() {
         OutputView.printInputPeople();
-        return Arrays.stream(scanner.nextLine().split(","))
-                .map(String::trim)
-                .collect(Collectors.toList());
+        try {
+            return new Names(Arrays.stream(scanner.nextLine().split(","))
+                    .map(String::trim)
+                    .map(Name::new)
+                    .collect(Collectors.toList()));
+        } catch (IllegalArgumentException e) {
+            OutputView.printErrorMessage(e);
+            return getPeople();
+        }
     }
 
     public int getMaxHeight() {

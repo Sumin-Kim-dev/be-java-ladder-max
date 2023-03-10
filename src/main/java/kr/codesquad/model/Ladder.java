@@ -41,7 +41,8 @@ public class Ladder {
     public String toString() {
         StringBuilder result = new StringBuilder();
         for (List<Boolean> row : legs) {
-            result.append(rowToString(row)).append('\n');
+            result.append(" ".repeat(Name.MAX_NAME_LENGTH / 2))
+                    .append(rowToString(row)).append('\n');
         }
         return result.toString();
     }
