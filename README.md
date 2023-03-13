@@ -25,11 +25,17 @@
   - 배열 대신 ArrayList, Generic 을 사용할 것
   - 이외 요구 사항은 2단계와 동일
 
+- 4단계 : 리팩토링 2
+  - 단위 테스트 작성
+  - 패키지 분리 및 접근 제어자를 적절히 사용하여 리팩토링
+
 ## 학습 계획
 
 - [x] 1, 2단계 요구 사항 분석, 정리하기
 - [x] 1단계 구현하기
-- [ ] String, StringBuilder, StringBuffer 공부하기
-- [ ] coding convention 찾아보기
+- [x] String, StringBuilder, StringBuffer 공부하기
+- [x] coding convention 찾아보기
 - [x] 3단계 요구 사항 분석, 정리하기
-- [ ] 3단계 구현하기
+- [x] 3단계 구현하기
+- [ ] 테스트 코드 작성
+- [ ] 4단계 리팩토링하기
